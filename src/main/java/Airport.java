@@ -101,9 +101,7 @@ public class Airport {
 
     @Override
     public String toString() {
-        return "Airport{" +
-                "Planes=" + planes.toString() +
-                '}';
+        return "Airport{" + "Planes=" + planes.toString() + '}';
     }
 
     public Airport(List<? extends Plane> planes) {
