@@ -13,15 +13,14 @@ import java.util.*;
 public class Airport {
     private final List<? extends Plane> planes;
 
-
     public List<PassengerPlane> getPassengerPlane() {
-        List<PassengerPlane> PassengerPlane = new ArrayList<>();
+        List<PassengerPlane> passengerPlane = new ArrayList<>();
         for (Plane plane : this.planes) {
             if (plane instanceof PassengerPlane) {
-                PassengerPlane.add((PassengerPlane) plane);
+                passengerPlane.add((PassengerPlane) plane);
             }
         }
-        return PassengerPlane;
+        return passengerPlane;
     }
 
     public List<MilitaryPlane> getMilitaryPlanes() {
@@ -42,14 +41,12 @@ public class Airport {
                 planeWithMaxCapacity = passengerPlane;
             }
         }
-
         return planeWithMaxCapacity;
     }
 
     public List<MilitaryPlane> getTransportMilitaryPlanes() {
         List<MilitaryPlane> transportMilitaryPlanes = new ArrayList<>();
-        List<MilitaryPlane> militaryPlanes = getMilitaryPlanes();
-        for (MilitaryPlane plane : militaryPlanes) {
+        for (MilitaryPlane plane : getMilitaryPlanes()) {
             if (plane.getType() == MilitaryType.TRANSPORT) {
                 transportMilitaryPlanes.add(plane);
             }
@@ -59,14 +56,12 @@ public class Airport {
 
     public List<MilitaryPlane> getBomberMilitaryPlanes() {
         List<MilitaryPlane> bomberMilitaryPlanes = new ArrayList<>();
-        List<MilitaryPlane> militaryPlanes = getMilitaryPlanes();
-        for (MilitaryPlane plane : militaryPlanes) {
+        for (MilitaryPlane plane :  getMilitaryPlanes()) {
             if (plane.getType() == MilitaryType.BOMBER) {
                 bomberMilitaryPlanes.add(plane);
             }
         }
         return bomberMilitaryPlanes;
-
     }
 
     public List<experimentalPlane> getExperimentalPlanes() {
@@ -97,7 +92,6 @@ public class Airport {
     public List<? extends Plane> getPlanes() {
         return planes;
     }
-
 
     @Override
     public String toString() {

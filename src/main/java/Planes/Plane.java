@@ -4,9 +4,7 @@ import java.util.Objects;
 
 abstract public class Plane {
     String model;
-    private final int maxSpeed;
-    private final int maxFlightDistance;
-    private final int maxLoadCapacity;
+    private final int maxSpeed, maxFlightDistance, maxLoadCapacity;
 
     public Plane(String model, int maxSpeed, int maxFlightDistance, int maxLoadCapacity) {
         this.model = model;
@@ -38,10 +36,10 @@ abstract public class Plane {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Plane)) return false;
-        Plane plane = (Plane) o;
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (!(object instanceof Plane)) return false;
+        Plane plane = (Plane) object;
         return Objects.equals(maxSpeed, plane.maxSpeed) &&
                 Objects.equals(maxFlightDistance, plane.maxFlightDistance) &&
                 Objects.equals(maxLoadCapacity, plane.maxLoadCapacity) &&
