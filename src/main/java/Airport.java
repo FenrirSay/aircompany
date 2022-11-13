@@ -11,11 +11,11 @@ import java.util.*;
 // 4-Jan-2019
 
 public class Airport {
-    private final List<? extends Plane> planes;
+    private final List<Plane> planes;
 
     public List<PassengerPlane> getPassengerPlane() {
         List<PassengerPlane> passengerPlane = new ArrayList<>();
-        for (Plane plane : this.planes) {
+        for (Plane plane : planes) {
             if (plane instanceof PassengerPlane) {
                 passengerPlane.add((PassengerPlane) plane);
             }
@@ -47,7 +47,7 @@ public class Airport {
     public List<MilitaryPlane> getTransportMilitaryPlanes() {
         List<MilitaryPlane> transportMilitaryPlanes = new ArrayList<>();
         for (MilitaryPlane plane : getMilitaryPlanes()) {
-            if (plane.getType() == MilitaryType.TRANSPORT) {
+            if (plane.getMilitaryType() == MilitaryType.TRANSPORT) {
                 transportMilitaryPlanes.add(plane);
             }
         }
@@ -57,7 +57,7 @@ public class Airport {
     public List<MilitaryPlane> getBomberMilitaryPlanes() {
         List<MilitaryPlane> bomberMilitaryPlanes = new ArrayList<>();
         for (MilitaryPlane plane :  getMilitaryPlanes()) {
-            if (plane.getType() == MilitaryType.BOMBER) {
+            if (plane.getMilitaryType() == MilitaryType.BOMBER) {
                 bomberMilitaryPlanes.add(plane);
             }
         }
@@ -75,12 +75,12 @@ public class Airport {
     }
 
     public Airport sortByMaxDistance() {
-        planes.sort(Comparator.comparingInt(Plane::Get_Max_Flight_Distance));
+        planes.sort(Comparator.comparingInt(Plane::GetMaxFlightDistance));
         return this;
     }
 
     public Airport sortByMaxSpeed() {
-        planes.sort(Comparator.comparingInt(Plane::getMS));
+        planes.sort(Comparator.comparingInt(Plane::getMaxSpeed));
         return this;
     }
 
@@ -99,7 +99,7 @@ public class Airport {
     }
 
     public Airport(List<? extends Plane> planes) {
-        this.planes = planes;
+        this.planes = (List<Plane>) planes;
     }
 
 }
