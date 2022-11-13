@@ -26,8 +26,7 @@ public class MilitaryPlane extends Plane {
     public boolean equals(Object object) {
         if (this == object) return true;
         if (!(object instanceof MilitaryPlane)||(!super.equals(object))) return false;
-        MilitaryPlane that = (MilitaryPlane) object;
-        return type == that.type;
+        return type == ((MilitaryPlane) object).type;
     }
 
     @Override
