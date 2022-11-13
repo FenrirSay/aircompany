@@ -85,12 +85,12 @@ public class Airport {
     }
 
     public Airport sortByMaxSpeed() {
-        Collections.sort(planes, Comparator.comparingInt(Plane::getMS));
+        planes.sort(Comparator.comparingInt(Plane::getMS));
         return this;
     }
 
     public Airport sortByMaxLoadCapacity() {
-        Collections.sort(planes, Comparator.comparingInt(Plane::getMinLoadCapacity));
+        planes.sort(Comparator.comparingInt(Plane::getMinLoadCapacity));
         return this;
     }
 
