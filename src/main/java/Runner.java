@@ -5,6 +5,7 @@ import Planes.Plane;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.Logger;
 
 public class Runner {
     static List<Plane> planes = Arrays.asList(
@@ -25,16 +26,16 @@ public class Runner {
     );
 
     public static void main(String[] args) {
+        Logger logger = Logger.getLogger(String.valueOf(Runner.class));
         Airport airport = new Airport(planes);
-        Airport militaryAirport = new Airport(airport.getMilitaryPlanes());
-        Airport passengerAirport = new Airport(airport.getPassengerPlane());
-        System.out.println("Military airport sorted by max distance: " + militaryAirport
+        logger.info("Military airport sorted by max distance: " + new Airport(airport.getMilitaryPlanes())
                 .sortByMaxDistance()
                 .toString());
-        System.out.println("Passenger airport sorted by max speed: " + passengerAirport
+
+        logger.info("Passenger airport sorted by max speed: " + new Airport(airport.getPassengerPlane())
                 .sortByMaxSpeed()
                 .toString());
 
-        System.out.println("Plane with max passenger capacity: " + passengerAirport.getPassengerPlaneWithMaxPassengersCapacity());
+        logger.info("Plane with max passenger capacity: " + (new Airport(airport.getPassengerPlane())).getPassengerPlaneWithMaxPassengersCapacity());
     }
 }

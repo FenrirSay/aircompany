@@ -66,9 +66,9 @@ public class Airport {
 
     public List<experimentalPlane> getExperimentalPlanes() {
         List<experimentalPlane> experimentalPlanes = new ArrayList<>();
-        for (Plane plane : planes) {
-            if (plane instanceof experimentalPlane) {
-                experimentalPlanes.add((experimentalPlane) plane);
+        for (Plane experimentalPlane  : planes) {
+            if (experimentalPlane  instanceof experimentalPlane) {
+                experimentalPlanes.add((experimentalPlane) experimentalPlane );
             }
         }
         return experimentalPlanes;
