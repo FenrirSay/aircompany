@@ -11,13 +11,12 @@ import java.util.*;
 // 4-Jan-2019
 
 public class Airport {
-    private List<? extends Plane> planes;
+    private final List<? extends Plane> planes;
 
 
     public List<PassengerPlane> getPassengerPlane() {
-        List<? extends Plane> l = this.planes;
         List<PassengerPlane> x = new ArrayList<>();
-        for (Plane p : l) {
+        for (Plane p : this.planes) {
             if (p instanceof PassengerPlane) {
                 x.add((PassengerPlane) p);
             }
@@ -81,11 +80,7 @@ public class Airport {
     }
 
     public Airport sortByMaxDistance() {
-        Collections.sort(planes, new Comparator<Plane>() {
-            public int compare(Plane o1, Plane o2) {
-                return o1.Get_Max_Flight_Distance() - o2.Get_Max_Flight_Distance();
-            }
-        });
+        planes.sort(Comparator.comparingInt(Plane::Get_Max_Flight_Distance));
         return this;
     }
 
