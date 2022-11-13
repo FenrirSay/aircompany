@@ -15,13 +15,13 @@ public class Airport {
 
 
     public List<PassengerPlane> getPassengerPlane() {
-        List<PassengerPlane> x = new ArrayList<>();
-        for (Plane p : this.planes) {
-            if (p instanceof PassengerPlane) {
-                x.add((PassengerPlane) p);
+        List<PassengerPlane> PassengerPlane = new ArrayList<>();
+        for (Plane plane : this.planes) {
+            if (plane instanceof PassengerPlane) {
+                PassengerPlane.add((PassengerPlane) plane);
             }
         }
-        return x;
+        return PassengerPlane;
     }
 
     public List<MilitaryPlane> getMilitaryPlanes() {
@@ -97,7 +97,7 @@ public class Airport {
     public List<? extends Plane> getPlanes() {
         return planes;
     }
-    
+
 
     @Override
     public String toString() {
